@@ -33,6 +33,14 @@
         {
             "pattern": "resources/views/**/*.edge",
             "reloadServer": false
+        },
+        {
+            "pattern": "ssl/*",
+            "reloadServer": false
+        },
+        {
+            "pattern": ".env",
+            "reloadServer": false
         }
     ],
     "aceProviders": [
