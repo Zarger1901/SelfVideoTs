@@ -35,11 +35,23 @@
             "reloadServer": false
         },
         {
+            "pattern": "resources/images/**",
+            "reloadServer": false
+        },
+        {
             "pattern": "ssl/*",
             "reloadServer": false
         },
         {
             "pattern": ".env",
+            "reloadServer": false
+        },
+        {
+            "pattern": ".gitignore",
+            "reloadServer": false
+        },
+        {
+            "pattern": "ecosystem.config.js",
             "reloadServer": false
         }
     ],

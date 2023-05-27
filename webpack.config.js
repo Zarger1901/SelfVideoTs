@@ -1,5 +1,6 @@
 const { join } = require('path')
 const Encore = require('@symfony/webpack-encore')
+const path = require('path')
 
 /*
 |--------------------------------------------------------------------------
@@ -57,10 +58,10 @@ Encore.addEntry('app', './resources/js/app.js')
 | we must copy them manually.
 |
 */
-// Encore.copyFiles({
-//   from: './resources/images',
-//   to: 'images/[path][name].[hash:8].[ext]',
-// })
+Encore.copyFiles({
+    from: './resources/images',
+    to: 'images/[path][name].[hash:8].[ext]',
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -156,9 +157,13 @@ Encore.configureDevServerOptions((options) => {
 | favorite CSS precompiler
 |
 */
-// Encore.enableSassLoader()
-// Encore.enableLessLoader()
-// Encore.enableStylusLoader()
+Encore.enableSassLoader()
+Encore.enableLessLoader((options) => {
+    options.lessOptions = {
+        config: path.resolve(__dirname, 'less.config.js'),
+    }
+})
+Encore.enableStylusLoader()
 
 /*
 |--------------------------------------------------------------------------
@@ -169,7 +174,11 @@ Encore.configureDevServerOptions((options) => {
 | PostCSS or CSS.
 |
 */
-// Encore.enablePostCssLoader()
+Encore.enablePostCssLoader((options) => {
+    options.postcssOptions = {
+        config: path.resolve(__dirname, 'postcss.config.js'),
+    }
+})
 // Encore.configureCssLoader(() => {})
 
 /*

@@ -1,1 +1,6 @@
-import '../css/app.css'
+// import '../css/app.css'
+import '../css/app.less'
+import '../css/index.less'
+import '../../node_modules/bootstrap/scss/bootstrap.scss'
+import '../css/index.less'
+import './index.js'
